@@ -45,7 +45,7 @@ func uploadFile(client pb.ScalePredictorClient, filename string, windowSize int3
         if err := stream.Send(req); err != nil {
             return fmt.Errorf("failed sending data: %v", err)
         }
-        time.Sleep(50 * time.Millisecond) // 控制发送速率
+        time.Sleep(10 * time.Millisecond) // simulate slow upload
     }
 
     res, err := stream.CloseAndRecv()
@@ -58,8 +58,8 @@ func uploadFile(client pb.ScalePredictorClient, filename string, windowSize int3
 }
 
 func main() {
-    predictor_ip_port := os.Args[1]
-    file_path := os.Args[0]
+    predictor_ip_port := os.Args[2]
+    file_path := os.Args[1]
     conn, err := grpc.Dial(predictor_ip_port, grpc.WithTransportCredentials(insecure.NewCredentials()))
     if err != nil {
         log.Fatalf("can't connect to grpc server: %v", err)
