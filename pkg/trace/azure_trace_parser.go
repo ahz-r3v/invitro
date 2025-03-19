@@ -52,13 +52,13 @@ type AzureTraceParser struct {
 	invocationColumnShift int
 }
 
-func NewAzureParser(directoryPath string, totalDuration int, yamlPath string, invocationColumnShift int) *AzureTraceParser {
+func NewAzureParser(directoryPath string, totalDuration int, yamlPath string, skipDuration int) *AzureTraceParser {
 	return &AzureTraceParser{
 		DirectoryPath:         directoryPath,
 		yamlPath:              yamlPath,
 		duration:              totalDuration,
 		functionNameGenerator: rand.New(rand.NewSource(time.Now().UnixNano())),
-		invocationColumnShift: invocationColumnShift,
+		invocationColumnShift: skipDuration,
 	}
 }
 

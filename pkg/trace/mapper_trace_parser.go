@@ -31,13 +31,13 @@ type functionToDeploymentInfo map[string]DeploymentInfo
 
 type functionToProxy map[string]MapperOutput
 
-func NewMapperParser(directoryPath string, totalDuration int, invocationColumnShift int) *MapperTraceParser {
+func NewMapperParser(directoryPath string, totalDuration int, skipDuration int) *MapperTraceParser {
 	return &MapperTraceParser{
 		DirectoryPath: directoryPath,
 
 		duration:              totalDuration,
 		functionNameGenerator: rand.New(rand.NewSource(time.Now().UnixNano())),
-		invocationColumnShift: invocationColumnShift,
+		invocationColumnShift: skipDuration,
 	}
 }
 
