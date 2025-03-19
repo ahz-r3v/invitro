@@ -56,13 +56,14 @@ type LoaderConfiguration struct {
 	RpsMemoryMB                 int     `json:"RpsMemoryMB"`
 	RpsIterationMultiplier      int     `json:"RpsIterationMultiplier"`
 
-	TracePath          string `json:"TracePath"`
-	Granularity        string `json:"Granularity"`
-	OutputPathPrefix   string `json:"OutputPathPrefix"`
-	IATDistribution    string `json:"IATDistribution"`
-	CPULimit           string `json:"CPULimit"`
-	ExperimentDuration int    `json:"ExperimentDuration"`
-	WarmupDuration     int    `json:"WarmupDuration"`
+	TracePath                   string `json:"TracePath"`
+	Granularity                 string `json:"Granularity"`
+	OutputPathPrefix            string `json:"OutputPathPrefix"`
+	IATDistribution             string `json:"IATDistribution"`
+	CPULimit                    string `json:"CPULimit"`
+	ExperimentDuration          int    `json:"ExperimentDuration"`
+	WarmupDuration              int    `json:"WarmupDuration"`
+	InvocationColumnShift       int    `json:"InvocationColumnShift"`
 
 	IsPartiallyPanic            bool   `json:"IsPartiallyPanic"`
 	EnableZipkinTracing         bool   `json:"EnableZipkinTracing"`
